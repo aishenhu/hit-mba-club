@@ -1,0 +1,103 @@
+.main{
+	border:1px solid #ccc;
+	position:relative;
+	width:960px;
+}
+
+.userinput-wrapper label{
+	line-height:38px;
+	display:block;
+	float:left;
+	height:38px;
+	margin-right:6px;
+}
+
+.tag-item{
+	height:34px;
+	padding:0 4px;
+	line-height: 34px;
+	position:relative;
+}
+
+.close{
+	position:absolute;
+	top:-8px;
+	right:-8px;
+	display:block;
+	height:16px;
+	width:16px;
+	line-height:16px;
+	text-align:center;
+}
+
+.title, .tags, .editor, .image, .thumb, .userinfo, .companyinfo{
+	border-bottom:1px solid #ccc;
+	padding:10px 0;
+}
+
+.images-candidates{
+	display:block;
+	margin:5px 0;
+	border-bottom:1px solid #e1e1e1;
+	position:relative;
+}
+
+.userinfo label, .companyinfo label{
+	width: 100px;
+	display:block;
+	height:38px;
+	line-height:38px;
+	vertical-align:center;
+}
+
+textarea {
+	border:1px solid #ccc;
+	padding:5px;
+	width:442px;
+	font-size:14px;
+	outline:none;
+	
+}
+
+textarea:hover{
+	cursor:text;
+}
+
+#submit {
+	margin-top:10px;
+}
+
+.imagewrapper{
+	position:relative;
+	border-bottom:1px solid #e1e1e1;
+	margin-bottom:5px;
+}
+
+.imagewrapper .close{
+	display:block;
+	position:static;
+	width:32px;
+}
+
+.side{
+	border:1px solid #ccc;
+	margin-bottom:10px;
+	width:970px;
+}
+
+.list li{
+	display:block;
+	float:left;
+	margin-right:10px;
+	border:1px solid #e1e1e1;
+}
+
+.list li.current{
+	background:#ccc;
+	border:1px solid #bbb;
+}
+
+.list a{
+	display:block;
+	padding:0 5px;
+}

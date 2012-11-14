@@ -1,0 +1,245 @@
+/**
+ * css for header
+ */
+.header {
+    /*background: #665B5F;*/
+    background: url(../assets/newlogo1.png) no-repeat;
+    height: 180px;
+    border: 1px solid #e1e1e1;
+    text-align: center;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.w-160 {
+	width:140px;
+	*width:150px;
+}
+
+.w-90 {
+	width:90px;
+	*width:100px;
+}
+
+.w-60 {
+	width: 60px;
+	*widht: 70px;
+}
+
+.logo {
+    
+    width: 320px;
+    height: 160px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.logo-word {
+    background: url(../assets/word.png) no-repeat;
+    width: 500px;
+    height: 60px;
+    position: absolute;
+    top: 10px;
+    right: 30px;
+}
+
+.about {
+    background: #e1e1e1;
+}
+
+.site-nav {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+}
+
+.site-nav-item {
+    float: left;
+    margin-right: 10px;
+}
+
+.site-nav a {
+    color: #000;
+}
+
+.site-nav a:visited {
+    color: #000;
+}
+
+/**
+ * css for side
+ */
+.side-title {
+    font-size: 16px;
+}
+
+/**
+ * css for main-info
+ */
+.main-title {
+    font-size: 20px;
+    text-align: center;
+    margin: 10px 0 5px 0;
+}
+
+.main-info {
+    min-height: 400px;
+    _height: 400px;
+}
+
+.main-info img {
+    padding: 10px;
+    max-width: 600px;
+}
+
+.main-info p {
+    text-indent: 2em;
+    line-height: 20px;
+}
+
+.attachment {
+    margin: 10px 0;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.info-list li {
+    height: 24px;
+    line-height: 24px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.sub-info {
+    text-align: center;
+    margin: 0 0 10px 0;
+    color: #777;
+}
+
+.tag {
+    margin-right: 5px;
+    text-decoration: underline;
+}
+
+.side .list li {
+    line-height: 24px;
+    border-bottom:1px solid #e1e1e1;
+}
+
+.side-title{
+	border-bottom:1px solid #e1e1e1;
+}
+
+.side .list a {
+    display: block;
+}
+
+.side .list a:hover {
+    text-decoration: none;
+    background: #e1e1e1;
+}
+
+.side {
+    min-width: 230px;
+	width:230px;
+    padding: 5px 5px; 
+}
+
+.main {
+    min-height: 500px;
+    min-width: 700px;
+	*min-width:680px;
+    border-left: 1px solid #e1e1e1;
+    padding: 5px 10px;
+}
+
+.main-wrapper {
+    width: 700px;
+}
+
+h2 {
+    font: normal 14px / 31px "MicroSoft YaHei", "SimHei", "Arial";
+	*height:31px;
+}
+
+/**
+ * css for table display
+ */
+table {
+    margin: 5px auto 0;
+    clear: both;
+}
+
+caption {
+    text-align: center;
+    font: 14px / 28px "MicroSoft YaHei", "SimHei", "Arial";
+}
+
+th, td {
+    border: 1px solid #ccc;
+    font-size: 14px;
+    padding: 4px 6px;
+}
+
+th {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    background: #ddd;
+}
+
+tr:hover {
+    background: #eee;
+    cursor: pointer;
+}
+
+.side-box {
+    border: 1px solid #e1e1e1;
+    margin: 0 0 10px 0;
+    padding: 5px;
+}
+
+.side-box .side-title {
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.content-title {
+    text-align: center;
+}
+
+.footer {
+    font: normal 14px "Arial";
+    text-align: center;
+    padding: 20px 0;
+    margin: 10px auto;
+}
+
+/***
+ * css for userinput
+ */
+.userinput {
+    padding: 0 3px;
+    height: 38px;
+    width: 236px;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    background: url(../assets/inputbg.png) no-repeat -2px -44px;
+    line-height: 38px;
+}
+
+.userinput-wrapper {
+    margin-bottom: 13px;
+}
+
+.userinput:focus {
+    background-position: -2px -2px;
+}
+
+.userinput-focus {
+    background-position: -2px -2px;
+}
+
+em.imp {
+    color: red;
+}

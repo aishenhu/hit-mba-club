@@ -1,0 +1,30 @@
+.main {
+	border:1px solid #e1e1e1;
+	padding:0;
+}
+
+.enterprise-list {
+	padding: 10px;
+	font: normal 14px "宋体", "SimHei", "Arial";	
+	width:700px;
+	margin:0 auto;
+}
+
+.enterprise {
+	padding-bottom:10px;
+	border-bottom:1px solid #e1e1e1;
+	margin-bottom:10px;
+	position:relative;
+}
+
+
+.title{
+	font-size:1.5em;
+}
+
+.link {
+	position:absolute;
+	line-height:31px;
+	top:0;
+	right:0;
+}

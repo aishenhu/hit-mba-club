@@ -1,0 +1,42 @@
+.side {
+	border:1px solid #ccc;
+}
+
+.logo-word{
+	background:url(../assets/word2.png) no-repeat transparent;
+}
+
+.main{
+	border:1px solid #ccc;
+	position:relative;
+	*width:700px;
+}
+
+.side-title{
+	border-bottom:1px solid #ccc;
+	line-height:31px;
+	vertical-align:middle;
+}
+
+h2, .list{
+	display:block;
+	width:100%;
+}
+
+table {
+	border:1px solid #ccc;
+	text-align:center;
+}
+
+.op{
+	padding-top:10px;
+	width:300px;
+	position:relative;
+	left:60px;
+	*left:62px;
+}
+
+.op input {
+	position:absolute;
+	bottom:0;
+}

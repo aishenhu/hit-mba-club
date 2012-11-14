@@ -1,0 +1,68 @@
+@import url(reset.css);
+html {
+    background-color: #fff;
+}
+
+body, button, input, select, textarea {
+    font: 12px / 1.5 tahoma, arial, sans-serif;
+}
+
+.clearfix {
+    display: block;
+    *zoom: 1;
+}
+
+.clearfix:after {
+    content: "cc";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+    zoom: 1;
+}
+
+.wrapper {
+    margin: 0 auto;
+    position: relative;
+    width: 980px;
+    display: block;
+}
+
+.c-999 {
+    color: #999;
+}
+
+.small{
+	font-size:0.85em;
+}
+
+.c-c00{
+	color:#c00;
+	font-weight:bold;
+}
+
+.help {
+    color: #999;
+    font-style: italic;
+}
+
+.hidden{
+	display:none !important;
+}
+
+.fl{
+	float:left;
+}
+
+.fr{
+	float:right;
+}
+
+a {
+	text-decoration:none;
+	cursor:pointer;
+}
+
+a:hover{
+	text-decoration:underline;
+}

@@ -1,0 +1,26 @@
+.logo-word{
+	background:url(../assets/word2.png) no-repeat transparent;
+}
+
+.main{
+	border:1px solid #e1e1e1;
+	/*border-left:none;
+	border-right:none;*/
+	width:960px;
+}
+
+.application{
+	width:900px;	
+}
+
+tr:hover{
+	cursor:default;
+}
+
+td {
+	text-align:center;
+}
+
+.operation{
+	margin-top:10px;
+}

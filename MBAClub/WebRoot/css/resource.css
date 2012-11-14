@@ -1,0 +1,99 @@
+body {
+    font: normal 14px "宋体", "Arial";
+}
+
+.side {
+	min-width:250px;
+    padding: 0;
+}
+
+.main {
+    padding: 0;
+    border: none;
+    width: 720px;
+	min-height:300px;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+tr {
+    height: 22px;
+	
+}
+
+tr:hover{
+	cursor:default;
+}
+
+td,th{
+	border-left:none;
+	border-right:none;
+}
+
+.icon {
+	*display:inline-block;
+    padding-left: 22px;
+	font-size:22px;
+    height: 22px;
+    background: url(../assets/share_icons.png) no-repeat;
+}
+
+.icon.word {
+    background-position: -30px -458px;
+}
+
+.icon.zip{
+	background-position: -6px -505px;
+}
+
+.icon.excel{
+	background-position: -6px -458px;
+}
+
+.button{
+	margin-right:5px;
+}
+
+a.button:hover{
+	text-decoration:none;
+	background:#ccc;
+	border-color:#bbb;
+}
+
+.share-op{
+	width:160px;
+	*width:165px;
+}
+
+.operation{
+	float:right;
+	margin-top:10px;
+}
+
+.select {
+	margin-top:20px;
+	font-size:12px;
+}
+
+.select a{
+	color:#015BAB;
+}
+
+.footer{
+	font: normal 14px "Arial";
+	text-align:center;
+	padding:20px 0;
+	margin:10px auto;
+}
+
+.flash-wrapper{
+	margin-top:10px;
+}
+
+.file-box{ position:relative;width:380px} 
+.txt{ height:22px; border:1px solid #cdcdcd; width:180px;margin-right:10px;line-height:22px;} 
+.btn{ background-color:#FFF; border:1px solid #CDCDCD;height:24px; width:70px;margin-right:10px;} 
+.file{ position:absolute; top:0; left:200px; height:24px; filter:alpha(opacity:0);opacity: 0;width:70px } 

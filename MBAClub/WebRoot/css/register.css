@@ -1,0 +1,58 @@
+.main {
+    border: 1px solid #e1e1e1;
+	*width: 700px;
+	*height: 500px;
+}
+
+body {
+}
+
+.register-box form {
+    width: 520px;
+    margin: 10px auto 0;
+    font-size: 14px;
+}
+
+.register-box label {
+    width: 100px;
+    display: block;
+    float: left;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+}
+
+.register-box .g-button {
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+.register-box .formop {
+    margin-left: 100px;
+}
+
+.login, .mail {
+	margin:5px 0;
+}
+
+.info{
+	margin-top:5px;
+	border-top:1px solid #e1e1e1;
+	padding:5px 0;
+}
+
+.side{
+	padding-top:0;
+	padding-right:0;
+	width:245px;
+}
+
+.result.error {
+	color:red;
+}
+
+.result {
+	display:inline-block;
+	height: 38px;
+	line-height: 38px;
+}

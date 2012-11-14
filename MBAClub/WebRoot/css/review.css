@@ -1,0 +1,125 @@
+.content {
+    min-height: 430px;
+    _height: 430px;
+}
+
+.operation {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.activity {
+    border: 1px solid #e1e1e1;
+    margin: 10px 10px 0 10px;
+    display: block;
+    width: 153px;
+	height: 175px;
+    padding: 15px 10px 5px;
+    text-align: center;
+}
+
+.activity-title {
+	display:block;
+	*margin:3px 0;
+}
+
+.review-wrapper {
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.type-switch {
+    position: absolute;
+    top: -22px;
+    right: 0;
+	line-height:12px;
+}
+
+.type-switch span{
+	display: block;
+	height:20px;
+	*line-height: 20px;
+}
+
+.type-thumb, .type-list {
+    display: block;
+    width: 14px;
+    height: 22px;
+    background: url(../assets/share_icons.png) no-repeat;
+    float: left;
+    margin-right: 5px;
+}
+
+.type-thumb {
+	background-position:-40px -553px;
+}
+
+.type-thumb.type-current {
+	background-position:0 -553px;
+}
+
+.type-list {
+	background-position:-60px -553px;
+}
+
+.type-list.type-current{
+	background-position:-20px -553px;
+}
+
+.thumb{
+	    border: 1px solid #e1e1e1;
+		padding-bottom:40px;
+		position:relative;
+}
+
+.list li{
+	line-height:24px;
+	min-height:24px;
+	font-size:14px;
+}
+
+.list li a{
+	display:block;
+	width:240px;
+}
+
+.list .side-box{
+	padding-bottom:40px;
+	width:970px;
+	position:relative;
+}
+
+.list .more{
+	position:absolute;
+	text-align:center;
+	bottom:5px;
+}
+
+.more-loading{
+	line-height:25px;
+	height:25px;
+	display:block;
+}
+.more-status {
+	padding-left:30px;
+	background:url("../assets/loading-small.gif") no-repeat;
+}
+
+.list{
+	width:100%;
+}
+
+.main{
+	border:1px solid #e1e1e1;
+	margin-left:6px;
+}
+
+.side-title{
+	clear:both;
+}
+
+.main .loading-status{
+	text-align:center;
+}
+

@@ -1,0 +1,18 @@
+body {
+    font: normal 14px "宋体", "Arial";
+}
+
+.content{
+	border:1px solid #e1e1e1;
+}
+
+.footer{
+	font: normal 14px "Arial";
+	text-align:center;
+	padding:20px 0;
+	margin:10px auto;
+}
+
+.site-nav {
+	font-size:12px;
+}
