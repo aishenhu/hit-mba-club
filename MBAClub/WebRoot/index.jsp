@@ -97,7 +97,7 @@
 									<li class="clearfix">
 									<a href="<%=basePath %>news.jsp?id=${review.id}">
 										<img width="120px" height="50px"
-											src="<c:out value="${review.image}" default="assets/review.png"></c:out>"
+											src="<%=basePath %><c:out value="${review.image}" default="assets/review.png"></c:out>"
 											class="fl" /></a>
 										<a class="description fl" href="<%=basePath %>news.jsp?id=${review.id}">${review.name }</a>
 									</li>
@@ -109,7 +109,7 @@
 								<div class="img-title-item  fl">
 									<a href="<%=basePath %>news.jsp?id=${review.id}">
 									<img width="120px" height="80px"
-										src="<c:out value="${review.image}" default="assets/news.png" ></c:out>" /></a>
+										src="<%=basePath %><c:out value="${review.image}" default="assets/news.png" ></c:out>" /></a>
 									<a class="description" href="<%=basePath %>news.jsp?id=${review.id}">${review.name }</a>
 								</div>
 							</c:forEach>
