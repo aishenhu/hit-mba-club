@@ -78,11 +78,16 @@ public class Register extends HttpServlet {
 		String company = request.getParameter("company");
 		String info = request.getParameter("infor");
 		String truename = request.getParameter("truename");
+		String phone = request.getParameter("phone");
+		String school = request.getParameter("school");
+		String school_date = request.getParameter("date");
+		
 		System.out.println("Register Servlet....");
 		System.out.println("username...." + username);
 		System.out.println("password...." + password);
 		System.out.println("email...." + email);
 		System.out.println("company...." + company);
+		System.out.println("phone...." + phone);
 		System.out.println("info...." + info);
 		SecurityUserDAO userDao = new SecurityUserDAO();
 		SecurityUser user = new SecurityUser();
@@ -92,6 +97,10 @@ public class Register extends HttpServlet {
 		user.setDuty(company);
 		user.setDescn(info);
 		user.setTruename(truename);
+		user.setMobile(phone);
+		user.setCode(school);
+		user.setTel(school_date);
+		
 		// 状态2为为审核状态
 		user.setStatus((short) 2);
 		user.setBirthday(new Timestamp(System.currentTimeMillis()));

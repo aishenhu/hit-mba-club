@@ -150,6 +150,7 @@ tr:hover {
 								</td>
 								<td>
 									<input value="保存" type="submit" class="button fl" />
+									<input value="user_manager" type="hidden" name="action"/>
 								</td>
 							</tr>
 						</form>
