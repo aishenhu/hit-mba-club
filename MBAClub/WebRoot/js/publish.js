@@ -163,7 +163,7 @@ function getPublishInfo(){
 }
 
 function submit(){
-    var type = $(".current").val("value");
+    //var type = $(".current").val("value");
     $.ajax({
         type: "POST",
         data: {
