@@ -172,6 +172,7 @@ function submit(){
     	title: publish.title,
         tags: publish.tags, /*使用英文分号作为分隔符*/
         thumb: publish.thumb,
+        thumbType: publish.thumbType,
         images: publish.images,
         username: publish.username,
         usercompany: publish.usercompany,
