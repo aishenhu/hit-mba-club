@@ -76,7 +76,7 @@
 					<li class="fl">
 						<a href="member.jsp?id=<%=m.getId() %>" class="image"
 							title="<%=m.getName() %>"><img
-								src="member/<%=m.getImage() %>" /> </a>
+								src="member/<%=m.getImage() %>" width='200' height='160'/> </a>
 					</li>
 					<%
 					}
