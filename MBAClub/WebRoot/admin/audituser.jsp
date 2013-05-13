@@ -62,16 +62,7 @@
 							用户名
 						</th>
 						<th>
-							真实姓名
-						</th>
-						<th>
 							邮箱
-						</th>
-						<th>
-							毕业院校
-						</th>
-						<th>
-							入学年限
 						</th>
 						<th>
 							工作单位
@@ -95,16 +86,7 @@
 							<%=user.getUsername() %>
 						</td>
 						<td>
-							<%=user.getTruename() %>
-						</td>
-						<td>
 							<%=user.getEmail() %>
-						</td>
-						<td>
-							<%=user.getCode() == null ? "无" : user.getCode() %>
-						</td>
-						<td>
-							<%=user.getTel() == null ? "无" : user.getTel() %>
 						</td>
 						<td>
 							<%=user.getDuty() %>
@@ -124,7 +106,7 @@
 				<%
 					}
 				%>
-				<!-- <div class="operation">
+				<div class="operation">
 					<ul class="op-page clearfix">
 						<li class="fl">
 							<a class="button">上一页</a>
@@ -142,7 +124,7 @@
 							<a class="button">下一页</a>
 						</li>
 					</ul>
-				</div> -->
+				</div>
 			</div>
 		</div>
 		<div class="footer wrapper">

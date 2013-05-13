@@ -106,19 +106,10 @@ public class SecurityUser implements java.io.Serializable {
 		this.descn = descn;
 	}
 
-	/**
-	 * 得到毕业学校
-	 * @return
-	 */
 	public String getCode() {
 		return this.code;
 	}
 
-	/**
-	 * 设置毕业学校
-	 * 
-	 * @param code
-	 */
 	public void setCode(String code) {
 		this.code = code;
 	}
@@ -147,20 +138,10 @@ public class SecurityUser implements java.io.Serializable {
 		this.birthday = birthday;
 	}
 
-	/**
-	 * 得到入学年
-	 * 
-	 * @return
-	 */
 	public String getTel() {
 		return this.tel;
 	}
 
-	/**
-	 * 设置入学年
-	 * 
-	 * @param tel
-	 */
 	public void setTel(String tel) {
 		this.tel = tel;
 	}

@@ -16,7 +16,6 @@ var publish = {
     title: "",
     tags: "", /*使用英文分号作为分隔符*/
     thumb: "",
-    thumbType:0,//0 小图， 1大图
     images: [],
     username: "",
     usercompany: "",
@@ -139,7 +138,7 @@ function getPublishInfo(){
     publish.title = $("input[name=title]").val();
     publish.tags = $("input[name=tag]").val();
     publish.thumb = $("#thumb").attr("src");
-    publish.thumbType = $('.switchThumbType').attr('type');//0 小图， 1大图
+    
     $(".images-candidates").each(function(){
         publish.images.push($(this).attr("src"));
     });
@@ -164,7 +163,7 @@ function getPublishInfo(){
 }
 
 function submit(){
-    //var type = $(".current").val("value");
+    var type = $(".current").val("value");
     $.ajax({
         type: "POST",
         data: {
@@ -172,7 +171,6 @@ function submit(){
     	title: publish.title,
         tags: publish.tags, /*使用英文分号作为分隔符*/
         thumb: publish.thumb,
-        thumbType: publish.thumbType,
         images: publish.images,
         username: publish.username,
         usercompany: publish.usercompany,
