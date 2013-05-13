@@ -33,6 +33,7 @@
 .content p {
     text-indent: 2em;
     font-size: 14px;
+	line-height:1.6em
 }
 
 .title {
@@ -77,6 +78,8 @@ a {
 .value{
 	display:block;
 	width:130px;
+	word-wrap: break-word; 
+	word-break: normal; 
 }
 
 .outline-list a{
