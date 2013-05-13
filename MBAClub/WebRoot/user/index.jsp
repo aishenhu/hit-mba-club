@@ -37,7 +37,7 @@
 					<span class="c-999">当前位置：</span>
 				</li>
 				<li class="fl">
-					<a href="index.jsp">首页</a>
+					<a href="index.jsp">管理首页</a>
 				</li>
 				<li class="fl">
 					>

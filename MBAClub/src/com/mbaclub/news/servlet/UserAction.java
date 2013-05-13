@@ -77,7 +77,7 @@ public class UserAction extends HttpServlet {
 		}
 		SecurityUserDAO userDao = new SecurityUserDAO();
 		SecurityUser user = userDao.findById(uid);
-
+		System.out.println("user action = " + action);
 		if ("user_manager".equals(action)) {
 			user.setStatus(Short.parseShort(request.getParameter("enabled-"
 					+ user.getId())));

@@ -89,9 +89,18 @@ public class Publish extends HttpServlet {
 		} catch (Exception e) {
 			type = -1;
 		}
+		int thumbType = -1;
+		try{
+			// 0是小图，1是大图
+			thumbType = Integer.parseInt(request.getParameter("thumbType"));
+		} catch (Exception e) {
+			thumbType = -1;
+		}
+		
 		System.out.println("type = " + request.getParameter("type"));
+		System.out.println("thumbType = " + request.getParameter("thumbType"));
 		UrlInfo url = UrlUtil.getPublishManagerUrl(type);
-		if (type == 0 || type == 1 || type == 4 || type == 6) {
+		if (type == 0 || type == 1 || type == 4 || type == 6 || type == 7) {
 			NewsDAO newsDao = new NewsDAO();
 			com.mbaclub.news.pojo.News news = null;
 			if(isModify) {
@@ -130,8 +139,11 @@ public class Publish extends HttpServlet {
 			System.out.println(((SecurityUser) request.getSession()
 					.getAttribute("User")).getUsername());
 			// 设置分类
-			news.setNewsCategory(categoryDao.findById((long) url
-					.getCategoryId()));
+			if (thumbType == 0) {
+				news.setNewsCategory(categoryDao.findById((long)NewsDAO.NEWS_CATEGORY_REVIEW_MINI));
+			} else {
+				news.setNewsCategory(categoryDao.findById((long)NewsDAO.NEWS_CATEGORY_REVIEW_NORMAL));
+			}
 			newsDao.save(news);
 			response.getWriter().print(
 					getServletContext().getContextPath() + "/admin/news.jsp?id="
@@ -144,6 +156,7 @@ public class Publish extends HttpServlet {
 			c.setUrl(request.getParameter("companypage"));
 			c.setIntroduce(request.getParameter("companyinfo"));
 			c.setLogo(request.getParameter("companylogo"));
+			c.setOrderValue(cDao.getMaxOrderValue(url.getCategoryId()) + 1);
 			cDao.save(c);
 			response.getWriter().print(
 					getServletContext().getContextPath()
@@ -160,7 +173,7 @@ public class Publish extends HttpServlet {
 			m.setImage(request.getParameter("companylogo"));
 			mDao.save(m);
 			response.getWriter().print(
-					getServletContext().getContextPath() + "/member.jsp");
+					getServletContext().getContextPath() + "/member.jsp?id=" + m.getId());
 		}
 	}
 

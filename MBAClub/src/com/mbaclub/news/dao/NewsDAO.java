@@ -62,7 +62,7 @@ public class NewsDAO extends BaseHibernateDAO {
 	/**
 	 * 活动回顾
 	 */
-	public static final int NEWS_CATEGORY_REVIEW = 5;
+	public static final int NEWS_CATEGORY_REVIEW = 6;
 
 	public void save(News transientInstance) {
 		log.debug("saving News instance");
@@ -237,9 +237,17 @@ public class NewsDAO extends BaseHibernateDAO {
 	 */
 	public List<News> getNewsByCategoryID(long categoryId) {
 		try {
-			String queryString = "from News as news where news.newsCategory.id = ? order by news.updateDate desc";
-			Query queryObject = getSession().createQuery(queryString).setLong(
-					0, categoryId);
+			String queryString = "";
+			Query queryObject;
+			if (categoryId == NEWS_CATEGORY_REVIEW) {
+				queryString = "from News as news where news.newsCategory.id = ? or news.newsCategory.id = ? order by news.updateDate desc";
+				queryObject = getSession().createQuery(queryString).setLong(
+						0, NEWS_CATEGORY_REVIEW_NORMAL).setLong(1, NEWS_CATEGORY_REVIEW_MINI);
+			} else {
+				queryString = "from News as news where news.newsCategory.id = ? order by news.updateDate desc";
+				queryObject = getSession().createQuery(queryString).setLong(
+						0, categoryId);
+			}
 			return queryObject.list();
 		} catch (RuntimeException re) {
 			log.error("getNewsByCategoryID failed", re);
@@ -256,9 +264,17 @@ public class NewsDAO extends BaseHibernateDAO {
 	 */
 	public List<News> getNewsByCategoryID(long categoryId, int frist, int count) {
 		try {
-			String queryString = "from News as news where news.status = 1 and news.newsCategory.id = ? order by news.updateDate desc";
-			Query queryObject = getSession().createQuery(queryString).setLong(
-					0, categoryId).setFirstResult(frist).setMaxResults(count);
+			String queryString = "";
+			Query queryObject;
+			if (categoryId == NEWS_CATEGORY_REVIEW) {
+				queryString = "from News as news where news.status = 1 and (news.newsCategory.id = ? or news.newsCategory.id = ? ) order by news.updateDate desc";
+				queryObject = getSession().createQuery(queryString).setLong(
+						0, NEWS_CATEGORY_REVIEW_NORMAL).setLong(1, NEWS_CATEGORY_REVIEW_MINI).setFirstResult(frist).setMaxResults(count);
+			} else {
+				queryString = "from News as news where news.status = 1 and news.newsCategory.id = ? order by news.updateDate desc";
+				queryObject = getSession().createQuery(queryString).setLong(
+						0, categoryId).setFirstResult(frist).setMaxResults(count);
+			}
 			return queryObject.list();
 		} catch (RuntimeException re) {
 			log.error("getNewsByCategoryID failed", re);

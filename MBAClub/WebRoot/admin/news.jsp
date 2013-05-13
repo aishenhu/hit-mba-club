@@ -55,7 +55,7 @@
 					<span class="c-999">当前位置：</span>
 				</li>
 				<li class="fl">
-					<a href="<%=basePath%>index.jsp">首页</a>
+					<a href="<%=basePath%>index.jsp">管理首页</a>
 				</li>
 				<li class="fl">
 					>

@@ -41,7 +41,7 @@ public class UrlUtil {
 		case 0:
 			return new UrlInfo("活动发布", "", NewsDAO.NEWS_CATEGORY_ACTIVITY);
 		case 1:
-			return new UrlInfo("活动回顾", "", NewsDAO.NEWS_CATEGORY_REVIEW);
+			return new UrlInfo("活动回顾（大图）", "", NewsDAO.NEWS_CATEGORY_REVIEW_NORMAL);
 		case 2:
 			return new UrlInfo("会员单位", "", CompanyDAO.CATEGORY_TYPE_MEMBER);
 		case 3:
@@ -52,8 +52,27 @@ public class UrlUtil {
 			return new UrlInfo("精彩会员", "");
 		case 6:
 			return new UrlInfo("校园在线", "", NewsDAO.NEWS_CATEGORY_SCHOOL);
+		case 7:
+			return new UrlInfo("活动回顾（小图）", "", NewsDAO.NEWS_CATEGORY_REVIEW_MINI);
 		default:
 			return new UrlInfo("", "");
+		}
+	}
+	
+	/**
+	 * 得到一个合法的地址
+	 * 
+	 * @param url
+	 * @return
+	 */
+	public static String getLegalUrl(String url) {
+		if (url == null || "".equals(url)) {
+			return "无";
+		}
+		if (url.startsWith("http:") || url.startsWith("https:")) {
+			return url;
+		} else {
+			return "http://" + url;
 		}
 	}
 }

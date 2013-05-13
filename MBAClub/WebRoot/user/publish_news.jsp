@@ -9,6 +9,10 @@
 	int type = -1;
 	try {
 		type = Integer.parseInt(request.getParameter("type"));
+		if (type == 7) {
+			// 7为活动回顾中小图，转化为正常
+			type = 1;
+		}
 	} catch (Exception e) {
 		type = -1;
 	}
@@ -91,7 +95,7 @@
 						<span class="c-999">[用英文分号分开]</span>
 					</label>
 					<input type="text" name="tag" id="tag" class="userinput fl"
-						title="用;分开" value="<%=news != null ? news.getSource() : "" %>"/>
+						title="用;分开" value="<%=news != null && news.getSource() != null ? news.getSource() : "" %>"/>
 					<div class="fl tags-result clearfix">
 						<!--span class="tag-item fl mr-6 button">tag1<a class="close hidden" title="删除">x</a></span>
                         <span class="tag-item fl mr-6 button">tag2<a class="close hidden" title="删除">x</a></span-->
@@ -102,7 +106,7 @@
 						class="switch">
 					使用缩略图
 					</input>
-					<a class="switchThumbType" type=0>切换格式</a>
+					<a class="switchThumbType" type="1">切换格式</a>
 					<div class="fileupload hidden"><div align="left"> 
 						<script type="text/javascript">
 							function callbackThumb(msg, url) {

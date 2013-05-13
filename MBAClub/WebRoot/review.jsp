@@ -22,12 +22,12 @@
 		}
 		pageBean.setPageNo(pageNo);
 	}
-	List<News> recentNewsList = newsDao.getNewsByCategoryID(NewsDAO.NEWS_CATEGORY_REVIEW_NORMAL, (pageNo - 1) * PAGE_SIZE, 5);
+	List<News> recentNewsList = newsDao.getNewsByCategoryID(NewsDAO.NEWS_CATEGORY_REVIEW, (pageNo - 1) * PAGE_SIZE, PAGE_SIZE);
 	pageBean.setPageSize(PAGE_SIZE);
 	pageBean.setPageAction("review.jsp");
 	pageBean.setMethod("");
-	pageBean.setTotalRecords(newsDao.getNewsCountByCategoryID(newsDao.NEWS_CATEGORY_REVIEW_MINI)
-		+ newsDao.getNewsCountByCategoryID(newsDao.NEWS_CATEGORY_REVIEW_NORMAL));
+	pageBean.setTotalRecords(newsDao.getNewsCountByCategoryID(NewsDAO.NEWS_CATEGORY_REVIEW_MINI)
+		+ newsDao.getNewsCountByCategoryID(NewsDAO.NEWS_CATEGORY_REVIEW_NORMAL));
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -74,7 +74,7 @@
 				%>
 					<div class="activity  fl">
 						<a href="<%=news.getImage() %>" class="image">
-						<img height="80px" width="120px" src="<%=news.getImage() == null ? "assets/news.png" : news.getImage() %>" /></a>
+						<img height="80px" width="120px" src="<%=basePath%><%=news.getImage() == null ? "assets/news.png" : news.getImage() %>" /></a>
 						<a class="activity-title" href="<%=basePath %>news.jsp?id=<%=news.getId() %>" target="_black"><%=news.getName() %></a>
 						<p>
 							创建者：<%=news.getSecurityUser().getTruename() %>

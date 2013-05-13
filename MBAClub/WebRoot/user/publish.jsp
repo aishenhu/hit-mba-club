@@ -100,7 +100,7 @@
 						class="switch">
 					使用缩略图
 					</input>
-					<a class="switchThumbType" type=0>切换格式</a>
+					<a class="switchThumbType" type="1">切换格式</a>
 					<div class="fileupload hidden">
 						<script type="text/javascript">
 function callbackThumb(msg, url) {

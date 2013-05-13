@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@page import="com.mbaclub.news.dao.CompanyDAO"%>
 <%@page import="com.mbaclub.news.dao.NewsDAO"%>
+<%@page import="com.mbaclub.news.util.UrlUtil"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <jsp:useBean id="newsDao" class="com.mbaclub.news.dao.NewsDAO"></jsp:useBean>
@@ -11,13 +12,20 @@
 	class="com.mbaclub.news.dao.SchoolImageDAO"></jsp:useBean>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-	List<Member> imageList = memberDao.getMemberWithImage();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+	List<Member> imageList = memberDao.findAll();//.getMemberWithImage();
 	request.setAttribute("imageList", imageList);
-	request.setAttribute("noimageCompanyList", companyDao.getCompanysNoImage(CompanyDAO.CATEGORY_TYPE_MEMBER));
-	request.setAttribute("schoolList", newsDao.getNewsByCategoryID(NewsDAO.NEWS_CATEGORY_SCHOOL, 0, 10));
-	request.setAttribute("reviewMiniList", newsDao.getNewsByCategoryID(NewsDAO.NEWS_CATEGORY_REVIEW_MINI, 0, 4));
-	request.setAttribute("reviewNormaliList", newsDao.getNewsByCategoryID(NewsDAO.NEWS_CATEGORY_REVIEW_NORMAL, 0, 4));
+	request.setAttribute("noimageCompanyList", companyDao
+			.getCompanysNoImage(CompanyDAO.CATEGORY_TYPE_MEMBER));
+	request.setAttribute("schoolList", newsDao.getNewsByCategoryID(
+			NewsDAO.NEWS_CATEGORY_SCHOOL, 0, 10));
+	request.setAttribute("reviewMiniList", newsDao.getNewsByCategoryID(
+			NewsDAO.NEWS_CATEGORY_REVIEW_MINI, 0, 4));
+	request.setAttribute("reviewNormaliList", newsDao
+			.getNewsByCategoryID(NewsDAO.NEWS_CATEGORY_REVIEW_NORMAL,
+					0, 4));
 	request.setAttribute("schoolImageList", schoolImageDao.findAll());
 %>
 <html>
@@ -28,16 +36,16 @@
 		<meta HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57GMT">
 		
 		<title>欢迎来到黑龙江省MBA俱乐部</title>
-		<link rel="stylesheet" type="text/css" href="<%=basePath %>css/jquery.lightbox-0.5.css" media="screen" />
-		<link type="text/css" rel="stylesheet" href="<%=basePath %>css/base.css">
-		<link type="text/css" rel="stylesheet" href="<%=basePath %>css/common.css">
-		<link type="text/css" rel="stylesheet" href="<%=basePath %>css/page.css">
-		<link type="text/css" rel="stylesheet" href="<%=basePath %>css/index.css">
-		<link rel="stylesheet" href="<%=basePath %>themes/default/default.css" type="text/css" media="screen" />
-	    <link rel="stylesheet" href="<%=basePath %>themes/light/light.css" type="text/css" media="screen" />
-	    <link rel="stylesheet" href="<%=basePath %>themes/dark/dark.css" type="text/css" media="screen" />
-	    <link rel="stylesheet" href="<%=basePath %>themes/bar/bar.css" type="text/css" media="screen" />
-	    <link rel="stylesheet" href="<%=basePath %>css/nivo-slider.css" type="text/css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery.lightbox-0.5.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="<%=basePath%>css/base.css">
+		<link type="text/css" rel="stylesheet" href="<%=basePath%>css/common.css">
+		<link type="text/css" rel="stylesheet" href="<%=basePath%>css/page.css">
+		<link type="text/css" rel="stylesheet" href="<%=basePath%>css/index.css">
+		<link rel="stylesheet" href="<%=basePath%>themes/default/default.css" type="text/css" media="screen" />
+	    <link rel="stylesheet" href="<%=basePath%>themes/light/light.css" type="text/css" media="screen" />
+	    <link rel="stylesheet" href="<%=basePath%>themes/dark/dark.css" type="text/css" media="screen" />
+	    <link rel="stylesheet" href="<%=basePath%>themes/bar/bar.css" type="text/css" media="screen" />
+	    <link rel="stylesheet" href="<%=basePath%>css/nivo-slider.css" type="text/css" media="screen" />
 	</head>
 	<body>
 		<jsp:include page="header.jsp"></jsp:include>
@@ -55,27 +63,28 @@
 							活动发布
 							<span class="box-header-sub">Acivities release </span>
 						</h2>
-						<a href="<%=basePath %>activities.jsp" class="button more">more<span
+						<a href="<%=basePath%>activities.jsp" class="button more">more<span
 							class="more-icon fr"></span> </a>
 					</div>
 					<div class="box-content">
 						<div class="info-list">
 							<ul>
 								<%
-	                        	List<News> newsList = newsDao.getNewsByCategoryID(NewsDAO.NEWS_CATEGORY_ACTIVITY, 0, 10);
-	                        	for(int i = 0; newsList != null && i < newsList.size(); i++) {
-	                        		News n = newsList.get(i);
-	                        		if(i == newsList.size() - 1){
-	                        			out.println("<li class=\"last\">");
-	                        		}else{
-	                        			out.println("<li>");
-	                        		}
-	                        %>
-								<a href="<%=basePath %>news.jsp?id=<%=n.getId() %>"><%=n.getName() %></a>
+									List<News> newsList = newsDao.getNewsByCategoryID(
+											NewsDAO.NEWS_CATEGORY_ACTIVITY, 0, 10);
+									for (int i = 0; newsList != null && i < newsList.size(); i++) {
+										News n = newsList.get(i);
+										if (i == newsList.size() - 1) {
+											out.println("<li class=\"last\">");
+										} else {
+											out.println("<li>");
+										}
+								%>
+								<a href="<%=basePath%>news.jsp?id=<%=n.getId()%>"><%=n.getName()%></a>
 								</li>
 								<%
-                            	}
-                             %>
+									}
+								%>
 							</ul>
 						</div>
 					</div>
@@ -87,7 +96,7 @@
 							活动回顾
 							<span class="box-header-sub">Acivities review</span>
 						</h2>
-						<a class="button more" href="<%=basePath %>review.jsp">more<span
+						<a class="button more" href="<%=basePath%>review.jsp">more<span
 							class="more-icon"></span> </a>
 					</div>
 					<div class="box-content clearfix">
@@ -95,11 +104,11 @@
 							<ul>
 								<c:forEach var="review" items="${reviewMiniList}">
 									<li class="clearfix">
-									<a href="<%=basePath %>news.jsp?id=${review.id}">
+									<a href="<%=basePath%>news.jsp?id=${review.id}">
 										<img width="120px" height="50px"
-											src="<c:out value="${review.image}" default="assets/review.png"></c:out>"
+											src="<%=basePath%><c:out value="${review.image}" default="assets/review.png"></c:out>"
 											class="fl" /></a>
-										<a class="description fl" href="<%=basePath %>news.jsp?id=${review.id}">${review.name }</a>
+										<a class="description fl" href="<%=basePath%>news.jsp?id=${review.id}">${review.name }</a>
 									</li>
 								</c:forEach>
 							</ul>
@@ -107,10 +116,10 @@
 						<div class="img-title-group fl news clearfix">
 							<c:forEach var="review" items="${reviewNormaliList}">
 								<div class="img-title-item  fl">
-									<a href="<%=basePath %>news.jsp?id=${review.id}">
+									<a href="<%=basePath%>news.jsp?id=${review.id}">
 									<img width="120px" height="80px"
-										src="<c:out value="${review.image}" default="assets/news.png" ></c:out>" /></a>
-									<a class="description" href="<%=basePath %>news.jsp?id=${review.id}">${review.name }</a>
+										src="<%=basePath%><c:out value="${review.image}" default="assets/news.png" ></c:out>" /></a>
+									<a class="description" href="<%=basePath%>news.jsp?id=${review.id}">${review.name }</a>
 								</div>
 							</c:forEach>
 						</div>
@@ -123,29 +132,34 @@
 							<span class="box-header-sub">Member unit</span>
 						</h2>
 						<a class="button more"
-							href="<%=basePath %>enterprise.jsp?method=<%=CompanyDAO.CATEGORY_TYPE_MEMBER %>">more<span
+							href="<%=basePath%>enterprise.jsp?method=<%=CompanyDAO.CATEGORY_TYPE_MEMBER%>">more<span
 							class="more-icon"></span> </a>
 					</div>
 					<div class="box-content">
 						<div class="info-img-list fl">
 							<ul>
 								<%
-								List<Company> memImageList = companyDao.getCompanysWithImage(CompanyDAO.CATEGORY_TYPE_MEMBER);
-								for(int i = 0; i < memImageList.size(); i++){
-									Company cimage = memImageList.get(i);
-									String url = cimage.getUrl();
-									if(url != null && !url.startsWith("http")){
-										url = "http://" + url;
-									}
-							%>
+									List<Company> memImageList = companyDao
+											.getCompanys(CompanyDAO.CATEGORY_TYPE_MEMBER);
+									for (int i = 0; i < memImageList.size(); i++) {
+										Company cimage = memImageList.get(i);
+								%>
 								<li class="clearfix">
 									<img width="120px" height="50px"
-										src="<%=cimage.getLogo() %>" class="fl" />
-									<a class="description fl" href="<%=url %>" target="_blank"><%=cimage.getName() %></a>
+										src="<%=basePath %><%=cimage.getLogo() == null ? "company/default_company_132x58.png" : cimage.getLogo()%>" class="fl" />
+									<%
+										if (cimage.getUrl() == null || "".equals(cimage.getUrl())) {
+											out.println("<a class=\"description fl\">" + cimage.getName() + "</a>");
+										} else {
+									 %>
+									<a class="description fl" href="<%=cimage.getUrl() == null ? "#" : UrlUtil.getLegalUrl(cimage.getUrl())%>" target="_blank"><%=cimage.getName()%></a>
+									<%
+										}
+									 %>
 								</li>
 								<%
-								}
-							%>
+									}
+								%>
 							</ul>
 						</div>
 					</div>
@@ -156,30 +170,27 @@
 							精彩会员
 							<span class="box-header-sub"></span>
 						</h2>
-						<a class="button more" href="<%=basePath %>member.jsp">more<span
+						<a class="button more" href="<%=basePath%>member.jsp">more<span
 							class="more-icon"></span> </a>
 					</div>
 					<div class="box-content">
 						<div class="info-img-list fl">
 							<ul>
 							<%
-								for(int i = 0; imageList != null && i < imageList.size(); i++){
+								for (int i = 0; imageList != null && i < imageList.size(); i++) {
 									Member m = imageList.get(i);
-									String url = m.getUrl();
-									if(url != null && !url.startsWith("http")){
-										url = "http://" + url;
-									}
 							%>
 									<li class="clearfix">
-										<img width="120px" height="50px" src="member/<%=m.getImage() %>"
-											class="fl" />
-										<a class="description fl" href="<%=url %>"
-											target="_black"><%=m.getName() %>
+									<img width="120px" height="50px"
+										src="member/<%=m.getImage() == null ? "default_user_132x58.png" : m.getImage()%>"
+										class="fl" />
+									<a class="description fl" href="<%=basePath%>member.jsp?id=<%=m.getId()%>"
+											target="_black"><%=m.getName()%>
 										</a>
 									</li>
 							<%
 								}
-							 %>								
+							%>								
 							</ul>
 						</div>
 					</div>
@@ -190,23 +201,24 @@
 							信息交流
 							<span class="box-header-sub">Exchange of information</span>
 						</h2>
-						<a class="button more" href="<%=basePath %>information.jsp">more<span
+						<a class="button more" href="<%=basePath%>information.jsp">more<span
 							class="more-icon"></span> </a>
 					</div>
 					<div class="box-content">
 						<div class="info-group">
 							<ul>
 								<%
-	                        	List<News> infoNewsList = newsDao.getNewsByCategoryID(NewsDAO.NEWS_CATEGORY_INFO_EXCHANGE, 0, 10);
-	                        	for(int i = 0; infoNewsList != null && i < infoNewsList.size(); i++) {
-	                        		News n = infoNewsList.get(i);
-	                        %>
+									List<News> infoNewsList = newsDao.getNewsByCategoryID(
+											NewsDAO.NEWS_CATEGORY_INFO_EXCHANGE, 0, 10);
+									for (int i = 0; infoNewsList != null && i < infoNewsList.size(); i++) {
+										News n = infoNewsList.get(i);
+								%>
 								<li class="info-group-item">
-									<a href="news.jsp?id=<%=n.getId() %>" title="<%=n.getName() %>"><%=n.getName() %></a>
+									<a href="news.jsp?id=<%=n.getId()%>" title="<%=n.getName()%>"><%=n.getName()%></a>
 								</li>
 								<%
-								}
-							%>
+									}
+								%>
 							</ul>
 							<div class="op"></div>
 						</div>
@@ -227,7 +239,7 @@
 							<ul>
 								<c:forEach var="school" items="${schoolList}">
 									<li>
-										<a href="<%=basePath %>news.jsp?id=${school.id }">${school.name
+										<a href="<%=basePath%>news.jsp?id=${school.id }">${school.name
 											}</a>
 									</li>
 								</c:forEach>
@@ -296,27 +308,32 @@
 							<span class="box-header-sub">Cooperative enterprise</span>
 						</h2>
 						<a class="button more"
-							href="<%=basePath %>enterprise.jsp?method=<%=CompanyDAO.CATEGORY_TYPE_ENTERPRISE %>">more<span
+							href="<%=basePath%>enterprise.jsp?method=<%=CompanyDAO.CATEGORY_TYPE_ENTERPRISE%>">more<span
 							class="more-icon"></span> </a>
 					</div>
 					<div class="box-content">
 						<div class="image-slide">
 							<ul class="clearfix">
 								<%
-								List<Company> comImageList = companyDao.getCompanysWithImage(CompanyDAO.CATEGORY_TYPE_ENTERPRISE);
-								for(int i = 0; i < comImageList.size(); i++){
-									Company cimage = comImageList.get(i);
-							%>
+									List<Company> comImageList = companyDao
+											.getCompanysWithImage(CompanyDAO.CATEGORY_TYPE_ENTERPRISE);
+									for (int i = 0; i < comImageList.size(); i++) {
+										Company cimage = comImageList.get(i);
+								%>
 								<li class="fl mr-38">
-								<%if(cimage.getLogo() != null && !"".equals(cimage.getLogo())){ %>
+								<%
+									if (cimage.getLogo() != null && !"".equals(cimage.getLogo())) {
+								%>
 									<img width="120px" height="50px"
-										src="<%=cimage.getLogo() %>" class="fl" />
-								<%} %>
-									<a class="description" href="<%=cimage.getUrl() %>" target="_blank"><%=cimage.getName() %></a>
+										src="<%=cimage.getLogo()%>" class="fl" />
+								<%
+									}
+								%>
+									<a class="description" href="<%=cimage.getUrl()%>" target="_blank"><%=cimage.getName()%></a>
 								</li>
 								<%
-								}
-							%>
+									}
+								%>
 							</ul>
 						</div>
 					</div>

@@ -107,8 +107,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="thumb">
                     <input type="checkbox" value="使用缩略图" name="thumb-check" class="switch">使用缩略图
                     </input>
-					<a class="switchThumbType" type=0>切换格式</a>
-                    <div class="fileupload hidden">
+					<a class="switchThumbType" type="1">切换格式</a>
+                    <div class="fileupload hidden"> 
                         <script type="text/javascript">
                             function callbackThumb(msg, url){
                                 document.getElementById("file").outerHTML = document.getElementById("file").outerHTML;

@@ -8,7 +8,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 	List<Member> allMember = memberDao.findAll();
-	List<Member> imageMember = memberDao.getMemberWithImage();
+	List<Member> imageMember = memberDao.findAll();
 	Member curMember = null;
 	if(request.getParameter("id") == null && !allMember.isEmpty()){
 		curMember = allMember.get(0);
@@ -75,8 +75,8 @@
 				%>
 					<li class="fl">
 						<a href="member.jsp?id=<%=m.getId() %>" class="image"
-							title="<%=m.getName() %>"><img
-								src="member/<%=m.getImage() %>" /> </a>
+							title="<%=m.getName() %>"><img height="160" width="200"
+								src="member/<%=m.getImage() == null ? "default_user_200x160.png" : m.getImage() %>" /> </a>
 					</li>
 					<%
 					}
@@ -88,8 +88,15 @@
 				<h2 class="title">
 					<%=curMember.getName() %>
 				</h2>
-				<%if(curMember.getImage() != null){ %>
-					<img src="<%=curMember.getImage() %>" />
+				<%if(curMember.getImage() != null){ 
+					String url = curMember.getUrl();
+					if (url != null && url.startsWith("http")) {
+						
+					} else {
+						url = "http://" + url;
+					}
+				%>
+					<img src="<%=curMember.getImage() %>" height="160" width="200"/>
 				<%} %>
 				<p>
 					<%=curMember.getIntroduce() %>
@@ -116,8 +123,15 @@
 					</div>
 					<div class="info-item clearfix">
 						<span class="label fl">个人主页</span>
+						<%
+						String url = curMember.getUrl();
+						if (url != null && url.startsWith("http")) {
+							
+						} else {
+							url = "http://" + url;
+						} %>
 						<a class="value fl"
-							href="<%=curMember.getUrl() == null?"":curMember.getUrl() %>"
+							href="<%=url %>"
 							target="_blank"> <%=TextUtil.filterNull(curMember.getUrl()) %></a>
 					</div>
 				</div>

@@ -68,7 +68,7 @@ tr:hover {
 					<span class="c-999">当前位置：</span>
 				</li>
 				<li class="fl">
-					<a href="<%=basePath %>user/index.jsp">首页</a>
+					<a href="<%=basePath %>user/index.jsp">管理首页</a>
 				</li>
 				<li class="fl">
 					>
@@ -150,6 +150,7 @@ tr:hover {
 								</td>
 								<td>
 									<input value="保存" type="submit" class="button fl" />
+									<input value="user_manager" type="hidden" name="action"/>
 								</td>
 							</tr>
 						</form>

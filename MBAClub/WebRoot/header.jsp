@@ -37,7 +37,14 @@
 				|
 			</li>
 			<li class="site-nav-item">
-				<a href="<%=basePath %>login.jsp">会员登陆</a>
+				<a href="<%=basePath %>login.jsp">
+				<% 
+				if(request.getSession().getAttribute("User") != null){
+				%>会员管理
+				<%} else { %>
+					会员登陆
+				<%} %>
+				</a>
 			</li>
 			<li class="site-nav-item">
 				|

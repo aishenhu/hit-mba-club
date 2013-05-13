@@ -98,9 +98,9 @@
 									<a title="点击查看活动详情"
 										href="<%=basePath%>news.jsp?id=<%=news.getId()%>"> <%=news.getName()%></a>
 									<span> <%
- 	if (news.getImage() != null)
- 			out.println("[图文]");
- %> </span>
+											 	if (news.getImage() != null)
+											 			out.println("[图文]");
+											 %> </span>
 									<span class="info-time c-999"><%=DateUtil.getDate(news.getUpdateDate())%></span>
 								</div>
 							</li>

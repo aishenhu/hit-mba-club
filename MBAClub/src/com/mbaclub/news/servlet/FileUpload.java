@@ -123,9 +123,8 @@ public class FileUpload extends HttpServlet {
 			sign = false;
 		}
 		if (sign == true) {
-			out.println("<script>parent.callbackThumb('上传成功!', '" + basePath
-					+ getFolderName(type) + "/" + newFileName + "');</script>");
-			System.out.println("<script>parent.callbackThumb('上传成功!', '" + basePath
+			out.println("<script>parent.callbackThumb('上传成功!', '../" + getFolderName(type) + "/" + newFileName + "');</script>");
+			System.out.println("<script>parent.callbackThumb('上传成功!', '../"
 					+ getFolderName(type) + "/" + newFileName + "');</script>");
 		} else {
 			out.println("<script>parent.callbackThumb('上传失败!','');</script>");

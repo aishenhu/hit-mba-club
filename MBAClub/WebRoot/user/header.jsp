@@ -9,10 +9,19 @@
 	SecurityUser user = (SecurityUser)session.getAttribute("User");
 %>
 <div class="header wrapper clearfix">
+	<p style="position:absolute;left:10px;bottom:10px">
+	欢迎您，<%=user.getTruename() %> | 您是<%
+		if(userDao.isAdmin(user)){
+			out.print("管理员");
+		} else {
+			out.print("普通用户");
+		}
+	 %>
+	</p>
 	<div class="site-nav">
 		<ul class="clearfix">
 			<li class="site-nav-item">
-				<a href="<%=basePath %>user/index.jsp">首页</a>
+				<a href="<%=basePath %>index.jsp">首页</a>
 			</li>
 			<li class="site-nav-item">
 				|

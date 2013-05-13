@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@page import="com.mbaclub.news.pojo.UrlInfo"%>
 <%@page import="com.mbaclub.news.util.UrlUtil"%>
 <%@page import="com.mbaclub.news.pojo.News"%>
@@ -46,7 +46,7 @@
 					<span class="c-999">当前位置：</span>
 				</li>
 				<li class="fl">
-					<a href="<%=basePath%>user/index.jsp">首页</a>
+					<a href="<%=basePath%>user/index.jsp">管理首页</a>
 				</li>
 				<li class="fl">
 					>
@@ -72,7 +72,10 @@
 						<a href="?type=0">活动发布</a>
 					</li>
 					<li>
-						<a href="?type=1">活动回顾</a>
+						<a href="?type=1">活动回顾（大图）</a>
+					</li>
+					<li>
+						<a href="?type=7">活动回顾（小图）</a>
 					</li>
 					<li>
 						<a href="?type=2">会员单位</a>
@@ -99,7 +102,7 @@
 								<%=urlInfo.getName()%>
 							</caption>
 							<%
-								if (type == 0 || type == 1 || type == 4 || type == 6) {
+								if (type == 0 || type == 1 || type == 4 || type == 6 || type == 7) {
 									List<News> newsList = newsDao.getNewsByCategoryID(urlInfo
 											.getCategoryId());
 									if (!newsList.isEmpty()) {
@@ -200,12 +203,12 @@
 									<%=c.getOrderValue()%>
 								</td>
 								<td>
-									<%=c.getUrl() == null ? "无" : c.getUrl()%>
+									<%=UrlUtil.getLegalUrl(c.getUrl())%>
 								</td>
 								<td class="w-160">
 									<a class="button fl mr-6 topop"
 										href="<%=basePath%>admin/company_manager?action=top&id=<%=c.getId()%>&type=<%=type%>">置顶</a>
-									<a class="button fl mr-6">修改</a>
+									<!--  <a class="button fl mr-6">修改</a>-->
 									<a class="button fl deleteop"
 										href="<%=basePath%>admin/company_manager?action=delete&type=<%=type%>&id=<%=c.getId()%>">删除</a>
 								</td>
@@ -265,13 +268,13 @@
 								}
 							%>
 						</table>
-						<div class="op">
+						<!-- <div class="op">
 							<span class="g-button-submit g-button mr-6"><a
 								href="<%=basePath%>user/publish_news.jsp">创建新的</a>
 							</span>
 							<input class="g-button-submit g-button" type="submit"
 								value="保存修改" />
-						</div>
+						</div> -->
 					</form>
 				</div>
 			</div>

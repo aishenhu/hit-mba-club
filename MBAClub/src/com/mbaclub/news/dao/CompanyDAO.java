@@ -113,6 +113,24 @@ public class CompanyDAO extends BaseHibernateDAO {
 		}
 	}
 
+	/**
+	 * 得到一个分类的排序值的最大值
+	 * 
+	 * @param category
+	 * @return
+	 */
+	public int getMaxOrderValue(int category) {
+		try {
+			String queryString = "select max(model.orderValue) from Company as model where model.category = ?";
+			Query queryObject = getSession().createQuery(queryString);
+			queryObject.setInteger(0, category);
+			return (Integer)queryObject.uniqueResult();
+		} catch (RuntimeException re) {
+			log.error("getMaxOrderValue failed", re);
+			throw re;
+		}
+	}
+	
 	public List findByName(Object name) {
 		return findByProperty(NAME, name);
 	}
