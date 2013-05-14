@@ -33,6 +33,7 @@
 .content p {
     text-indent: 2em;
     font-size: 14px;
+	line-height:1.6em
 }
 
 .title {
@@ -41,20 +42,21 @@
 }
 
 .info-box {
-    background-color: #eee;
-    position: absolute;
-    padding: 10px 20px 20px 20px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    -webkit-box-shadow: 0 0 10px 0 #BBB;
-    -moz-box-shadow: 0 0 10px 0 #bbb;
-    box-shadow: 0 0 10px 0 #BBB;
-    overflow: visible;
-    width: 200px;
-    color: #333;
-    right: 0;
-    top: 10px;
+	background-color: #EEE;
+	padding: 10px 20px 20px 20px;
+	float: left;
+	margin: 0 1em 1em 0;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0 0 10px 0 #BBB;
+	-moz-box-shadow: 0 0 10px 0 #bbb;
+	box-shadow: 0 0 10px 0 #BBB;
+	overflow: visible;
+	width: 200px;
+	color: #333;
+	font-size: 12px;
+	text-indent: 0;
 }
 
 .info-title {
@@ -77,6 +79,8 @@ a {
 .value{
 	display:block;
 	width:130px;
+	word-wrap: break-word; 
+	word-break: normal; 
 }
 
 .outline-list a{
