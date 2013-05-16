@@ -1,9 +1,16 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@page import="com.mbaclub.news.pojo.FileList"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<jsp:useBean id="fileDao" class="com.mbaclub.news.dao.FileListDAO"></jsp:useBean>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
+	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+	List<FileList> list = fileDao.findAll();
+	List<FileList> newList = fileDao.getFileList(0, 7);
+	List<FileList> hitsList = fileDao.getFileListByHits(0, 7);
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
@@ -70,34 +77,17 @@
 						最新资源
 					</h2>
 					<ul class="list">
+					<%
+						for(int i = 0; newList != null && i < newList.size(); i++) {
+							FileList file = newList.get(i);
+					 %>
 						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
+							<a><%=file.getFilename() %><span class="c-999">[<%=format.format(new Date(file.getUploadDate().getTime())) %>]</span>
 							</a>
 						</li>
-						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
-							</a>
-						</li>
-						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
-							</a>
-						</li>
-						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
-							</a>
-						</li>
-						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
-							</a>
-						</li>
-						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
-							</a>
-						</li>
-						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
-							</a>
-						</li>
+					<%
+						}
+					 %>	
 					</ul>
 				</div>
 				<div class="side-box">
@@ -105,59 +95,17 @@
 						热门资源
 					</h2>
 					<ul class="list">
+					<%
+						for(int i = 0; hitsList != null && i < hitsList.size(); i++) {
+							FileList file = hitsList.get(i);
+					 %>
 						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span><span
-								class="c-999">[1231次]</span>
+							<a><%=file.getFilename() %><span class="c-999">[<%=format.format(new Date(file.getUploadDate().getTime())) %>][<%=file.getHits() %>]</span>
 							</a>
 						</li>
-						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
-							</a>
-						</li>
-						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
-							</a>
-						</li>
-						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
-							</a>
-						</li>
-						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
-							</a>
-						</li>
-						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
-							</a>
-						</li>
-						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
-							</a>
-						</li>
-						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
-							</a>
-						</li>
-						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
-							</a>
-						</li>
-						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
-							</a>
-						</li>
-						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
-							</a>
-						</li>
-						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
-							</a>
-						</li>
-						<li>
-							<a>共享文档<span class="c-999">[2012-05-19]</span>
-							</a>
-						</li>
+					<%
+						}
+					 %>
 					</ul>
 				</div>
 			</div>
@@ -219,9 +167,6 @@
 											文件大小
 										</th>
 										<th>
-											上传者
-										</th>
-										<th>
 											下载次数
 										</th>
 										<th>
@@ -231,381 +176,34 @@
 											操作
 										</th>
 									</tr>
+									<%
+										for (int i = 0; list != null && i < list.size(); i++) {
+											FileList file = list.get(i);
+									 %>
 									<tr>
 										<td>
 											<input type="checkbox" />
 										</td>
 										<td>
-											<span class="icon word"></span>分享文档.doc
+											<span class="icon word"></span><%=file.getFilename() %>
 										</td>
 										<td>
-											418.5MB
+											<%=file.getFileSizeContext() %>
 										</td>
 										<td>
-											管理员
+											<%=file.getHits() %>次
 										</td>
 										<td>
-											321次
-										</td>
-										<td>
-											2012-05-19
+											<%=format.format(new Date(file.getUploadDate().getTime())) %>
 										</td>
 										<td class="share-op">
-											<a class="button fl">下载</a>
-											<a class="button fl">重命名</a>
-											<a class="button fl">删除</a>
+											<a class="button fl" href="<%=basePath %>FileListAction?faction=download&id=<%=file.getId() %>">下载</a>
+											<a class="button fl" href="<%=basePath %>FileListAction?faction=delete&id=<%=file.getId() %>">删除</a>
 										</td>
 									</tr>
-									<tr>
-										<td>
-											<input type="checkbox" />
-										</td>
-										<td>
-											<span class="icon zip"></span>分享文档.zip
-										</td>
-										<td>
-											418.5MB
-										</td>
-										<td>
-											管理员
-										</td>
-										<td>
-											321次
-										</td>
-										<td>
-											2012-05-19
-										</td>
-										<td class="share-op">
-											<a class="button fl">下载</a>
-											<a class="button fl">重命名</a>
-											<a class="button fl">删除</a>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="checkbox" />
-										</td>
-										<td>
-											<span class="icon excel"></span>分享文档.xls
-										</td>
-										<td>
-											418.5MB
-										</td>
-										<td>
-											管理员
-										</td>
-										<td>
-											321次
-										</td>
-										<td>
-											2012-05-19
-										</td>
-										<td class="share-op">
-											<a class="button fl">下载</a>
-											<a class="button fl">重命名</a>
-											<a class="button fl">删除</a>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="checkbox" />
-										</td>
-										<td>
-											<span class="icon excel"></span>分享文档.xls
-										</td>
-										<td>
-											418.5MB
-										</td>
-										<td>
-											管理员
-										</td>
-										<td>
-											321次
-										</td>
-										<td>
-											2012-05-19
-										</td>
-										<td class="share-op">
-											<a class="button fl">下载</a>
-											<a class="button fl">重命名</a>
-											<a class="button fl">删除</a>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="checkbox" />
-										</td>
-										<td>
-											<span class="icon excel"></span>分享文档.xls
-										</td>
-										<td>
-											418.5MB
-										</td>
-										<td>
-											管理员
-										</td>
-										<td>
-											321次
-										</td>
-										<td>
-											2012-05-19
-										</td>
-										<td class="share-op">
-											<a class="button fl">下载</a>
-											<a class="button fl">重命名</a>
-											<a class="button fl">删除</a>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="checkbox" />
-										</td>
-										<td>
-											<span class="icon excel"></span>分享文档.xls
-										</td>
-										<td>
-											418.5MB
-										</td>
-										<td>
-											管理员
-										</td>
-										<td>
-											321次
-										</td>
-										<td>
-											2012-05-19
-										</td>
-										<td class="share-op">
-											<a class="button fl">下载</a>
-											<a class="button fl">重命名</a>
-											<a class="button fl">删除</a>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="checkbox" />
-										</td>
-										<td>
-											<span class="icon excel"></span>分享文档.xls
-										</td>
-										<td>
-											418.5MB
-										</td>
-										<td>
-											管理员
-										</td>
-										<td>
-											321次
-										</td>
-										<td>
-											2012-05-19
-										</td>
-										<td class="share-op">
-											<a class="button fl">下载</a>
-											<a class="button fl">重命名</a>
-											<a class="button fl">删除</a>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="checkbox" />
-										</td>
-										<td>
-											<span class="icon excel"></span>分享文档.xls
-										</td>
-										<td>
-											418.5MB
-										</td>
-										<td>
-											管理员
-										</td>
-										<td>
-											321次
-										</td>
-										<td>
-											2012-05-19
-										</td>
-										<td class="share-op">
-											<a class="button fl">下载</a>
-											<a class="button fl">重命名</a>
-											<a class="button fl">删除</a>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="checkbox" />
-										</td>
-										<td>
-											<span class="icon excel"></span>分享文档.xls
-										</td>
-										<td>
-											418.5MB
-										</td>
-										<td>
-											管理员
-										</td>
-										<td>
-											321次
-										</td>
-										<td>
-											2012-05-19
-										</td>
-										<td class="share-op">
-											<a class="button fl">下载</a>
-											<a class="button fl">重命名</a>
-											<a class="button fl">删除</a>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="checkbox" />
-										</td>
-										<td>
-											<span class="icon excel"></span>分享文档.xls
-										</td>
-										<td>
-											418.5MB
-										</td>
-										<td>
-											管理员
-										</td>
-										<td>
-											321次
-										</td>
-										<td>
-											2012-05-19
-										</td>
-										<td class="share-op">
-											<a class="button fl">下载</a>
-											<a class="button fl">重命名</a>
-											<a class="button fl">删除</a>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="checkbox" />
-										</td>
-										<td>
-											<span class="icon excel"></span>分享文档.xls
-										</td>
-										<td>
-											418.5MB
-										</td>
-										<td>
-											管理员
-										</td>
-										<td>
-											321次
-										</td>
-										<td>
-											2012-05-19
-										</td>
-										<td class="share-op">
-											<a class="button fl">下载</a>
-											<a class="button fl">重命名</a>
-											<a class="button fl">删除</a>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="checkbox" />
-										</td>
-										<td>
-											<span class="icon excel"></span>分享文档.xls
-										</td>
-										<td>
-											418.5MB
-										</td>
-										<td>
-											管理员
-										</td>
-										<td>
-											321次
-										</td>
-										<td>
-											2012-05-19
-										</td>
-										<td class="share-op">
-											<a class="button fl">下载</a>
-											<a class="button fl">重命名</a>
-											<a class="button fl">删除</a>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="checkbox" />
-										</td>
-										<td>
-											<span class="icon excel"></span>分享文档.xls
-										</td>
-										<td>
-											418.5MB
-										</td>
-										<td>
-											管理员
-										</td>
-										<td>
-											321次
-										</td>
-										<td>
-											2012-05-19
-										</td>
-										<td class="share-op">
-											<a class="button fl">下载</a>
-											<a class="button fl">重命名</a>
-											<a class="button fl">删除</a>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="checkbox" />
-										</td>
-										<td>
-											<span class="icon excel"></span>分享文档.xls
-										</td>
-										<td>
-											418.5MB
-										</td>
-										<td>
-											管理员
-										</td>
-										<td>
-											321次
-										</td>
-										<td>
-											2012-05-19
-										</td>
-										<td class="share-op">
-											<a class="button fl">下载</a>
-											<a class="button fl">重命名</a>
-											<a class="button fl">删除</a>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="checkbox" />
-										</td>
-										<td>
-											<span class="icon excel"></span>分享文档.xls
-										</td>
-										<td>
-											418.5MB
-										</td>
-										<td>
-											管理员
-										</td>
-										<td>
-											321次
-										</td>
-										<td>
-											2012-05-19
-										</td>
-										<td class="share-op">
-											<a class="button fl">下载</a>
-											<a class="button fl">重命名</a>
-											<a class="button fl">删除</a>
-										</td>
-									</tr>
+									<%
+										}
+									 %>
 								</tbody>
 							</table>
 							<div class="operation">
@@ -643,10 +241,10 @@
 								管理我的资源，显示已有资源[和所有中的显示方式一致]，上传新的资源
 							</h2-->
 							<div class="file-box">
-								<form action="FileListAction" method="post" enctype="multipart/form-data">
+								<form action="<%=basePath %>FileListAction" method="post" enctype="multipart/form-data">
 									<input type='text' name='textfield' id='textfield' class='txt' />
 									<input type='button' class='btn' value='浏览...' />
-									<input type='hidden' class='btn' value='upload' />
+									<input type='hidden' name="faction" value="upload" />
 									<input type="file" name="fileField" class="file" id="fileField"
 										size="28"
 										onchange="document.getElementById('textfield').value=$(this).val()" />

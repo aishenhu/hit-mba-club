@@ -110,7 +110,7 @@ public class FileUpload extends HttpServlet {
 			su.upload();
 
 			for (int i = 0; i < su.getFiles().getCount(); i++) {
-				com.jspsmart.upload.File f = su.getFiles().getFile(i);
+				com.jspsmart.upload.SmartFile f = su.getFiles().getFile(i);
 				// 将上传文件保存到指定目录
 				newFileName = FileUtil.getTimestampFilename() + "."
 						+ f.getFileExt();
