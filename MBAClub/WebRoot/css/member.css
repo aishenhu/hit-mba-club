@@ -114,6 +114,8 @@ a {
 	color:#333;
 	opacity:0.2;
 	right:0;
+	overflow-y:scroll;
+	height:300px;
 }
 
 .outline-op {

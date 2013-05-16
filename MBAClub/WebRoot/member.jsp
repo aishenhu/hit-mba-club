@@ -98,41 +98,42 @@
 				%>
 					<img src="<%=curMember.getImage() %>" height="160" width="200"/>
 				<%} %>
-				<p>
-				    <div class="info-box">
-						<h2 class="info-title">
-							会员信息
-						</h2>
-						<div class="info-item clearfix">
-							<span class="label fl">姓名</span>
-							<span class="value fl"><%=TextUtil.filterNull(curMember.getName()) %></span>
-						</div>
-						<div class="info-item clearfix">
-							<span class="label fl">公司</span>
-							<span class="value fl"><%=TextUtil.filterNull(curMember.getCompany()) %></span>
-						</div>
-						<div class="info-item clearfix">
-							<span class="label fl">毕业学校</span>
-							<span class="value fl"><%=TextUtil.filterNull(curMember.getSchool()) %></span>
-						</div>
-						<div class="info-item clearfix">
-							<span class="label fl">成功格言</span>
-							<span class="value fl"><%=TextUtil.filterNull(curMember.getMotto()) %></span>
-						</div>
-						<div class="info-item clearfix">
-							<span class="label fl">个人主页</span>
-							<%
-							String url = curMember.getUrl();
-							if (url != null && url.startsWith("http")) {
-								
-							} else {
-								url = "http://" + url;
-							} %>
-							<a class="value fl"
-								href="<%=url %>"
-								target="_blank"> <%=TextUtil.filterNull(curMember.getUrl()) %></a>
-						</div>
+				
+				<div class="info-box">
+					<h2 class="info-title">
+						会员信息
+					</h2>
+					<div class="info-item clearfix">
+						<span class="label fl">姓名</span>
+						<span class="value fl"><%=TextUtil.filterNull(curMember.getName()) %></span>
 					</div>
+					<div class="info-item clearfix">
+						<span class="label fl">公司</span>
+						<span class="value fl"><%=TextUtil.filterNull(curMember.getCompany()) %></span>
+					</div>
+					<div class="info-item clearfix">
+						<span class="label fl">毕业学校</span>
+						<span class="value fl"><%=TextUtil.filterNull(curMember.getSchool()) %></span>
+					</div>
+					<div class="info-item clearfix">
+						<span class="label fl">成功格言</span>
+						<span class="value fl"><%=TextUtil.filterNull(curMember.getMotto()) %></span>
+					</div>
+					<div class="info-item clearfix">
+						<span class="label fl">个人主页</span>
+						<%
+						String url = curMember.getUrl();
+						if (url != null && url.startsWith("http")) {
+							
+						} else {
+							url = "http://" + url;
+						} %>
+						<a class="value fl"
+							href="<%=url %>"
+							target="_blank"> <%=TextUtil.filterNull(curMember.getUrl()) %></a>
+					</div>
+				</div>
+				<p>
 					<%=curMember.getIntroduce() %>
 				</p>
 				
