@@ -90,6 +90,7 @@ textarea:hover{
 	float:left;
 	margin-right:10px;
 	border:1px solid #e1e1e1;
+	*width: 60px;
 }
 
 .list li.current{
@@ -100,4 +101,8 @@ textarea:hover{
 .list a{
 	display:block;
 	padding:0 5px;
+}
+
+.side-title{
+	border-bottom:none;
 }
