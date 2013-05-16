@@ -95,24 +95,27 @@
 
 .outline {
     position: fixed;
-    top: 250px;
+    top: 150px;
     left: 100px;
 }
 
 .outline-list {
     background-color: #BEBEBE;
-    position: absolute;
-    padding: 10px 20px 20px 20px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    -webkit-box-shadow: 0 0 10px 0 #BBB;
-    -moz-box-shadow: 0 0 10px 0 #bbb;
-    box-shadow: 0 0 10px 0 #BBB;
-    overflow: visible;
-	width:200px;
-	color:#333;
-	opacity:0.2;
+	position: absolute;
+	padding: 10px 20px 20px 20px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0 0 10px 0 #BBB;
+	-moz-box-shadow: 0 0 10px 0 #bbb;
+	box-shadow: 0 0 10px 0 #BBB;
+	overflow: visible;
+	width: 200px;
+	color: #333;
+	height: 300px;
+	top: -200px;
+	opacity: 0.2;
+	overflow-y: scroll;
 }
 
 .outline-op {
