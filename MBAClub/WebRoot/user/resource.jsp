@@ -639,9 +639,9 @@
 							</h2>
 						</div>
 						<div class="tab-content tab-4 hidden">
-							<h2>
+							<!--h2>
 								管理我的资源，显示已有资源[和所有中的显示方式一致]，上传新的资源
-							</h2>
+							</h2-->
 							<div class="file-box">
 								<form action="" method="post" enctype="multipart/form-data">
 									<input type='text' name='textfield' id='textfield' class='txt' />
