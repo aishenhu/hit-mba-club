@@ -1,10 +1,13 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@page import="com.mbaclub.news.pojo.SecurityUser"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
+	SecurityUser user = (SecurityUser)session.getAttribute("User");
 %>
+<jsp:useBean id="userDao" class="com.mbaclub.news.dao.SecurityUserDAO"></jsp:useBean>
 <div class="header wrapper clearfix">
 	<!-- div class="logo">
 	</div>
@@ -39,9 +42,11 @@
 			<li class="site-nav-item">
 				<a href="<%=basePath %>login.jsp">
 				<% 
-				if(request.getSession().getAttribute("User") != null){
+				if(user != null){
+					if (userDao.isAdmin(user)){
 				%>会员管理
-				<%} else { %>
+				<%}else{ %> 我的管理
+				<%}} else { %>
 					会员登陆
 				<%} %>
 				</a>

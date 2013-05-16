@@ -11,23 +11,23 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>资源共享</title>
 		<link type="text/css" rel="stylesheet"
-			href="<%=basePath%>css/base.css">
+			href="<%=basePath%>css/base.css" />
 		<link type="text/css" rel="stylesheet"
-			href="<%=basePath%>css/common.css">
+			href="<%=basePath%>css/common.css" />
 		<link type="text/css" rel="stylesheet"
-			href="<%=basePath%>css/page.css">
+			href="<%=basePath%>css/page.css" />
 		<link type="text/css" rel="stylesheet"
-			href="<%=basePath%>css/resource.css">
+			href="<%=basePath%>css/resource.css" />
 	</head>
 	<body>
-		<jsp:include page="../header.jsp"></jsp:include>
+		<jsp:include page="./header.jsp"></jsp:include>
 		<div class="page-nav wrapper">
 			<ul class="clearfix">
 				<li class="fl">
 					<span class="c-999">当前位置：</span>
 				</li>
 				<li class="fl">
-					<a href="<%=basePath%>index.jsp">首页</a>
+					<a href="<%=basePath%>index.jsp">管理首页</a>
 				</li>
 				<li class="fl">
 					>
@@ -643,9 +643,10 @@
 								管理我的资源，显示已有资源[和所有中的显示方式一致]，上传新的资源
 							</h2>
 							<div class="file-box">
-								<form action="" method="post" enctype="multipart/form-data">
+								<form action="FileListAction" method="post" enctype="multipart/form-data">
 									<input type='text' name='textfield' id='textfield' class='txt' />
 									<input type='button' class='btn' value='浏览...' />
+									<input type='hidden' class='btn' value='upload' />
 									<input type="file" name="fileField" class="file" id="fileField"
 										size="28"
 										onchange="document.getElementById('textfield').value=$(this).val()" />

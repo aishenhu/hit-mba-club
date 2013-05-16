@@ -146,7 +146,7 @@
 								%>
 								<li class="clearfix">
 									<img width="120px" height="50px"
-										src="<%=basePath %><%=cimage.getLogo() == null ? "company/default_company_132x58.png" : cimage.getLogo()%>" class="fl" />
+										src="<%=basePath %><%=cimage.getLogo() == null || cimage.getLogo().equals("") ? "company/default_company_132x58.png" : cimage.getLogo()%>" class="fl" />
 									<%
 										if (cimage.getUrl() == null || "".equals(cimage.getUrl())) {
 											out.println("<a class=\"description fl\">" + cimage.getName() + "</a>");

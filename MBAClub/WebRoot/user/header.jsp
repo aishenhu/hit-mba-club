@@ -63,6 +63,12 @@
 				|
 			</li>
 			<li class="site-nav-item">
+				<a href="<%=basePath %>user/resource.jsp">资源管理</a>
+			</li>
+			<li class="site-nav-item">
+				|
+			</li>
+			<li class="site-nav-item">
 				<a href="<%=basePath %>logout">登出</a>
 			</li>
 		</ul>

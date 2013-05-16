@@ -76,6 +76,11 @@
 		<servlet-name>NewsAudit</servlet-name>
 		<servlet-class>com.mbaclub.news.servlet.NewsAudit</servlet-class>
 	</servlet>
+  <servlet>
+    <servlet-name>FileListAction</servlet-name>
+    <servlet-class>com.mbaclub.news.servlet.FileListAction</servlet-class>
+  </servlet>
+
 
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
@@ -129,6 +134,10 @@
 		<servlet-name>NewsAudit</servlet-name>
 		<url-pattern>/admin/news_audit</url-pattern>
 	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FileListAction</servlet-name>
+    <url-pattern>/FileListAction</url-pattern>
+  </servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
