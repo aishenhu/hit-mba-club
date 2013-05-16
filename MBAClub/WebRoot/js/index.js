@@ -61,10 +61,10 @@ $(document).ready(function(){
 			list.css('margin-left',0);
 		});
 	}
-	setInterval(function(){
+	/*setInterval(function(){
 		slide(unitList);
 		slide(memberList);
-	}, 5000);
+	}, 5000);*/
 	
 	setInterval(function(){
 		slideLeft(enterpriseList);
