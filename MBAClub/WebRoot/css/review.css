@@ -22,6 +22,8 @@
 .activity-title {
 	display:block;
 	*margin:3px 0;
+	text-overflow:ellipsis;
+	overflow:hidden;
 }
 
 .review-wrapper {
